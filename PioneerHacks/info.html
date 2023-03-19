@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alzheimer's Disease Information</title>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+		body {
+			background-color: lightblue;
+		}
+	</style>
+    <style>
+		#gif {
+			position: absolute;
+			top: 42%;
+			right: 0;
+			transform: translate(0, -50%);
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+    <img id="gif" src="AccurateOccasionalFoxhound-size_restricted.gif" alt="AccurateOccasionalFoxhound GIF">
+	<h1>Alzheimer's Disease Information</h1>
+    <h2>Description:</h2>
+<p>Alzheimer's disease is a progressive brain disorder that affects memory, thinking, and behavior. It is the most common cause of dementia, a general term for the loss of cognitive abilities.</p>
+
+<h2>Common Symptoms:</h2>
+<ul>
+	<li>Memory loss that disrupts daily life</li>
+	<li>Difficulty completing familiar tasks</li>
+	<li>Confusion with time or place</li>
+	<li>Trouble understanding visual images and spatial relationships</li>
+	<li>New problems with speaking or writing</li>
+	<li>Misplacing things and losing the ability to retrace steps</li>
+	<li>Decreased or poor judgment</li>
+	<li>Withdrawal from work or social activities</li>
+	<li>Changes in mood and personality</li>
+</ul>
+
+<h2>Treatment:</h2>
+<p>There is currently no cure for Alzheimer's disease, but there are medications and non-drug treatments that can help manage symptoms and improve quality of life. It is also important to engage in regular physical activity, maintain a healthy diet, and stay socially and mentally active.</p>
+
+<h2>Alzheimer's Rate Over Time:</h2>
+<div id="plot"></div>
+
+<script>
+	var xValues = [2000, 2005, 2010, 2015, 2020];
+	var yValues = [2.8, 2.6, 2.3, 2.1, 1.8];
+
+	var trace1 = {
+		x: xValues,
+		y: yValues,
+		type: 'scatter',
+		mode: 'lines+markers',
+		line: {
+			color: 'red',
+			width: 3
+		},
+		marker: {
+			color: 'red',
+			size: 10
+		}
+	};
+
+	var data = [trace1];
+
+	var layout = {
+		title: 'Alzheimer\'s Rate Over Time',
+		xaxis: {
+			title: 'Year'
+		},
+		yaxis: {
+			title: 'Rate per 1,000 Population'
+		}
+	};
+
+	Plotly.newPlot('plot', data, layout);
+</script>
+</body>
+</html>
