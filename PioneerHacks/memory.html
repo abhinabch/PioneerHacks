@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <title>My Website</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="ticTacToe">
+      <div class="line line-horizontal"></div>
+      <div class="line line-horizontal"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <hr />
+    <div class="myGallery" id="imgGrid">
+      <div class="grid-cell"><img src="https://picsum.photos/190/190?1" /></div>
+      <div class="grid-cell"><img src="https://picsum.photos/190/190?2" /></div>
+      <div class="grid-cell"><img src="https://picsum.photos/190/190?3" /></div>
+      <div class="grid-cell"><img src="https://picsum.photos/190/190?4" /></div>
+      <div class="grid-cell"><img src="https://picsum.photos/190/190?5" /></div>
+      <div class="grid-cell"><img src="https://picsum.photos/190/190?6" /></div>
+      <div class="grid-cell"><img src="https://picsum.photos/190/190?7" /></div>
+      <div class="grid-cell"><img src="https://picsum.photos/190/190?8" /></div>
+      <div class="grid-cell"><img src="https://picsum.photos/190/190?9" /></div>
+    </div>
+    <p id="code"></p>
+    <script>
+      alert("Welcome to this memory matching game! Do your best to memorize the grid.")
+      const collection = document.getElementsByClassName("grid-cell");
+      let clickIdx = 0;
+      let numCorrect = 0;
+      function onClick(elem) {
+        const img = elem.children[0];
+        if (collection[clickIdx] != null) {
+          collection[clickIdx].appendChild(img);
+          console.log(
+            "https://picsum.photos/190/190?" + String(clickIdx + 1),
+            img.src
+          );
+          if (
+            "https://picsum.photos/190/190?" + String(clickIdx + 1) ==
+            img.src
+          ) {
+            numCorrect += 1;
+            console.log("correct");
+          }
+          console.log(numCorrect);
+
+          clickIdx++;
+        }
+        document.getElementById("code").innerHTML = "Score: " + numCorrect;
+      }
+
+      time = 3;
+      timerID = setInterval(countdown, 1000);
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      async function countdown() {
+        if (time <= 0) {
+          clearTimeout(timerID);
+          //document.getElementById("imgGrid").replaceChildren();
+          document.getElementById("toggleView1").style.visibility = "visible";
+          document.getElementById("toggleView2").style.visibility = "visible";
+          document.getElementById("toggleView3").style.visibility = "visible";
+          document.getElementById("toggleView4").style.visibility = "visible";
+          document.getElementById("toggleView5").style.visibility = "visible";
+          document.getElementById("toggleView6").style.visibility = "visible";
+          document.getElementById("toggleView7").style.visibility = "visible";
+          document.getElementById("toggleView8").style.visibility = "visible";
+          document.getElementById("toggleView9").style.visibility = "visible";
+          console.log(collection);
+
+          for (let i = 0; i < collection.length; i++) {
+            collection[i].removeChild(collection[i].children[0]);
+          }
+          // for (let i = 0; i < collection.length; i++) {
+          //   collection[i].firstChild.id;
+          // }
+          // document.getElementById(collection.length - 1);
+
+          await sleep(1000);
+
+          var response = alert(
+            "Now try and match the images that just disappeared to their corresponding location"
+          );
+        } else {
+          time--;
+          console.log(time);
+        }
+      }
+    </script>
+
+    <button id="toggleView1" onclick="onClick(this)">
+      <img src="https://picsum.photos/190/190?1" alt="" />
+    </button>
+    <button id="toggleView2" onclick="onClick(this)">
+      <img src="https://picsum.photos/190/190?6" alt="" />
+    </button>
+    <button id="toggleView3" onclick="onClick(this)">
+      <img src="https://picsum.photos/190/190?9" alt="" />
+    </button>
+    <button id="toggleView4" onclick="onClick(this)">
+      <img src="https://picsum.photos/190/190?2" alt="" />
+    </button>
+    <button id="toggleView5" onclick="onClick(this)">
+      <img src="https://picsum.photos/190/190?4" alt="" />
+    </button>
+    <button id="toggleView6" onclick="onClick(this)">
+      <img src="https://picsum.photos/190/190?8" alt="" />
+    </button>
+    <button id="toggleView7" onclick="onClick(this)">
+      <img src="https://picsum.photos/190/190?3" alt="" />
+    </button>
+    <button id="toggleView8" onclick="onClick(this)">
+      <img src="https://picsum.photos/190/190?7" alt="" />
+    </button>
+    <button id="toggleView9" onclick="onClick(this)">
+      <img src="https://picsum.photos/190/190?5" alt="" />
+    </button>
+  </body>
+</html>

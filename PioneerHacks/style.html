@@ -14,7 +14,7 @@
         font-family: 'Courier New', Courier, monospace;
         margin-top: 5%;
       }
-      .button  {
+      .button {
         border: 2px;
         border-color: black;
       }
@@ -69,7 +69,7 @@
               await sleep(1500);
               if(amountOfNumbers>=9) {
                 document.getElementById("hold").innerHTML = "You are at or above the world average amount of numbers memorizable in a short about of time!";
-                await sleep(1500);
+                await sleep(3000);
                 document.getElementById("hold").innerHTML = "Congratulations!";
               }else{
                 document.getElementById("hold").innerHTML = "Congrats!"
